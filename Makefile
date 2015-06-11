@@ -21,7 +21,10 @@ DIRSRC = srcs/
 FLAGS = -Wall -Wextra -Werror
 
 SRC = main.c \
-	  error.c
+	  error.c \
+	  ft_list.c \
+	  opt_swap.c \
+	  opt_push.c \
 
 OBJ = $(SRC:.c=.o)
 

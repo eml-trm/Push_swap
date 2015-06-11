@@ -34,6 +34,8 @@ typedef struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+
+int					ft_isspace(char c);
 int					ft_count_split(char const *str, char c);
 void				ft_print_cyan(char *str);
 void				ft_print_magenta(char *str);

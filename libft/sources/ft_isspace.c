@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdd.c                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cdubois <cdubois@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/17 16:53:56 by etermeau          #+#    #+#             */
-/*   Updated: 2014/11/17 18:18:17 by etermeau         ###   ########.fr       */
+/*   Created: 2015/05/27 14:51:28 by cdubois           #+#    #+#             */
+/*   Updated: 2015/05/27 14:54:19 by cdubois          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+int		ft_isspace(char c)
 {
-	if (*alst == NULL)
-		*alst = new;
-	else
-	{
-		new->next = (*alst);
-		(*alst) = new;
-	}
+	if (c != '\0')
+		if (c == ' ' || c == '\t' || c == 10 || c == '\r'
+				|| c == '\v' || c == '\f')
+			return (1);
+	return (0);
 }

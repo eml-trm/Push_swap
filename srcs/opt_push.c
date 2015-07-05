@@ -1,38 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   opt_push.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/27 11:50:52 by etermeau          #+#    #+#             */
-/*   Updated: 2015/05/27 11:50:54 by etermeau         ###   ########.fr       */
+/*   Created: 2015/06/02 14:27:29 by etermeau          #+#    #+#             */
+/*   Updated: 2015/06/02 14:27:33 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stdio.h>
 #include "push_swap.h"
 
-void	error_code(int status)
+void	p_on_a(t_lst *lst1, t_lst *lst2)
 {
-	if (status == 0)
+	if (lst2 == NULL)
 	{
-		ft_print_color(RED, "Error: Arguments incorrects\n", 2);
-		ft_print_color(RED, "Only numbers and no double\n", 2);
+		return ;
 	}
-	if (status == 1)
-		ft_print_color(RED, "Error: Malloc\n", 2);
-	exit(1);
+	else
+		lst_add(&lst1, lst2->next);
+
+	ft_print_color(YELLOW, "pa ", 1);
 }
 
-void	print_lst(t_lst *lst)
+void	p_on_b(t_lst *lst1, t_lst *lst2)
 {
 	t_lst *tmp;
 
-	tmp = lst->next;
-	while (tmp != lst)
+	tmp = lst1;
+	if (lst1 == NULL)
 	{
-		ft_putnbr(tmp->data);
-		ft_putchar('\n');
-		tmp = tmp->next;
+		return ;
 	}
+	else
+	{
+		while (tmp && tmp->next)
+		{
+			tmp = tmp->next;
+		}
+		ft_new_list(lst2, tmp->data);
+		lst_del_last(tmp);
+	}
+	ft_print_color(YELLOW, "pb ", 1);
 }

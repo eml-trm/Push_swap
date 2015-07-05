@@ -20,7 +20,7 @@ static int	check_double(char **tab, char *line, int len)
 	i = 1;
 	while (i < len)
 	{
-		if (ft_strequ(tab[i], line))
+		if (ft_strstr(tab[i], line))
 			return (1);
 		i++;
 	}
@@ -40,17 +40,18 @@ static void	check_arg(char **tab)
 			error_code(0);
 		i++;
 	}
+	ft_putchar('\n');
 }
 
 int		main(int ac, char **av)
 {
-	t_lst	**lsta;
-	t_lst	**lstb;
+	t_lsta	*lsta;
+	t_lsta	*lstb;
 	int i;
 
+	i = 1;
 	lsta = NULL;
 	lstb = NULL;
-	i = 1;
 	if (ac == 1)
 		error_code(0);
 	else
@@ -58,18 +59,18 @@ int		main(int ac, char **av)
 		check_arg(av);
 		while (av[i])
 		{
-			ft_new_list(lsta, ft_atoi(av[i]));
+			lst_add(&lsta, ft_new_elem(ft_atoi(av[i])));
 			i++;
 		}
-		s_on_a(*lsta, (*lsta)->next);
-		ft_putendl("Avant :");
-		print_lst(*lsta);
-		ft_putchar('\n');
-		print_lst(*lstb);
-		ft_putendl("Apres :");
-		print_lst(*lsta);
-		ft_putchar('\n');
-		print_lst(*lstb);
+		ft_putstr("Debut:");
+		print_lst(lsta, lstb);
+
+		s_on_a(&lsta);
+		print_lst(lsta, lstb);
+
+		// p_on_b(&lsta, &lstb);
+		// print_lst(lsta, lstb);
+
 	}
 	ft_print_color(BLUE, "OK\n", 1);
 	return (0);

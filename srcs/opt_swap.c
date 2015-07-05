@@ -12,41 +12,39 @@
 
 #include "push_swap.h"
 
-void	s_on_a(t_lst *elem1, t_lst *elem2)
+void	s_on_a(t_lsta **lst)
 {
-	t_lst *tmp1;
-	t_lst *tmp2;
+	t_lsta *tmp;
+	int swap;
+	
+	tmp = *lst;
+	while (tmp && tmp->next)
+		tmp = tmp->next;
+	swap = tmp->data;
+	tmp->data = tmp->prev->data;
+	tmp->prev->data = swap;
 
-	tmp1 = elem1;
-	tmp2 = elem2->next;
-
-	elem1 = elem2;
-	elem2 = tmp1;
-
-	elem1->next = elem2;
-	elem2->next = tmp2;
 	ft_print_color(YELLOW, "sa ", 1);
 }
 
-void	s_on_b(t_lst *elem1, t_lst *elem2)
+void	s_on_b(t_lsta **lst)
 {
-	t_lst *tmp1;
-	t_lst *tmp2;
+	t_lsta *tmp;
+	t_lsta *swap;
+	
+	tmp = *lst;
+	while (tmp && tmp->next)
+		tmp = tmp->next;
+	swap = tmp;
+	tmp = tmp->next;
+	tmp->next = swap;
 
-	tmp1 = elem1;
-	tmp2 = elem2->next;
-
-	elem1 = elem2;
-	elem2 = tmp1;
-
-	elem1->next = elem2;
-	elem2->next = tmp2;
 	ft_print_color(YELLOW, "sb ", 1);
 }
 
-void	s_on_ab(t_lst *lst1, t_lst *lst2)
-{
-	s_on_a(lst1, lst1->next);
-	s_on_b(lst2, lst2->next);
-	ft_print_color(YELLOW, "ss ", 1);
-}
+// void	s_on_ab(t_lsta **lst1, t_lsta **lst2)
+// {
+// 	s_on_a(&lst1, &lst1->next);
+// 	s_on_b(&lst2, &lst2->next);
+// 	ft_print_color(YELLOW, "ss ", 1);
+// }

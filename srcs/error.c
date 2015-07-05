@@ -24,15 +24,34 @@ void	error_code(int status)
 	exit(1);
 }
 
-void	print_lst(t_lst *lst)
+void	print_lst(t_lsta *lst1, t_lsta *lst2)
 {
-	t_lst *tmp;
+	t_lsta	*tmp1;
+	t_lsta	*tmp2;
 
-	tmp = lst->next;
-	while (tmp != lst)
+	tmp1 = lst1;
+	ft_putstr("\na: ");
+	if (lst1)
 	{
-		ft_putnbr(tmp->data);
-		ft_putchar('\n');
-		tmp = tmp->next;
+		while (tmp1)
+		{
+			ft_putnbr(tmp1->data);
+			ft_putchar(' ');
+			tmp1 = tmp1->next;
+		}
 	}
+	ft_putchar('\n');
+	ft_putstr("b: ");
+	if (lst2)
+	{
+		tmp2 = lst2;
+		while (tmp2)
+		{
+			ft_putnbr(tmp2->data);
+			ft_putchar(' ');
+			tmp2 = tmp2->next;
+		}
+	}
+	ft_putchar('\n');
+	ft_putchar('\n');
 }

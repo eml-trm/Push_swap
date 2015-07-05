@@ -12,24 +12,24 @@
 #include <stdio.h>
 #include "push_swap.h"
 
-void	p_on_a(t_lst *lst1, t_lst *lst2)
+void	p_on_a(t_lsta **lst1, t_lsta **lst2)
 {
-	if (lst2 == NULL)
+	if (*lst2 == NULL)
 	{
 		return ;
 	}
 	else
-		lst_add(&lst1, lst2->next);
+		lst_add(lst1, (*lst2)->next);
 
 	ft_print_color(YELLOW, "pa ", 1);
 }
 
-void	p_on_b(t_lst *lst1, t_lst *lst2)
+void	p_on_b(t_lsta **lst1, t_lsta **lst2)
 {
-	t_lst *tmp;
+	t_lsta *tmp;
 
-	tmp = lst1;
-	if (lst1 == NULL)
+	tmp = *lst1;
+	if (*lst1 == NULL)
 	{
 		return ;
 	}
@@ -40,7 +40,7 @@ void	p_on_b(t_lst *lst1, t_lst *lst2)
 			tmp = tmp->next;
 		}
 		ft_new_list(lst2, tmp->data);
-		lst_del_last(tmp);
+		// lst_del_last(tmp);
 	}
 	ft_print_color(YELLOW, "pb ", 1);
 }

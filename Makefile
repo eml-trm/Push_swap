@@ -18,7 +18,7 @@ HEADER = includes/
 
 DIRSRC = srcs/
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 
 SRC = main.c \
 	  error.c \
@@ -34,7 +34,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@make -s -C $(LIB)
-	@gcc $(FLAGS) -o $(NAME) $^ -L$(LIB) -lft -g
+	@gcc $(FLAGS) -o $(NAME) $^ -L$(LIB) -lft
 	@echo "\033[5;32m$(NAME) Successfully $(STATE)\033[0m"
 
 %.o: $(DIRSRC)%.c

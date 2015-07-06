@@ -18,11 +18,11 @@ void	s_on_a(t_lsta **lst)
 	int swap;
 	
 	tmp = *lst;
-	while (tmp && tmp->next)
+	while (tmp && tmp->next->next)
 		tmp = tmp->next;
 	swap = tmp->data;
-	tmp->data = tmp->prev->data;
-	tmp->prev->data = swap;
+	tmp->data = tmp->next->data;
+	tmp->next->data = swap;
 
 	ft_print_color(YELLOW, "sa ", 1);
 }

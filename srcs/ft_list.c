@@ -44,8 +44,7 @@ void	lst_add(t_lsta **lst1, t_lsta *new)
 void	ft_new_list(t_lsta **list, int nb)
 {
 	t_lsta	*new;
-	static 	*last = NULL;
-	t_lsta	*tmp;
+	static t_lsta *last = NULL;
 
 	new = ft_new_elem(nb);
 	if (last)
@@ -54,22 +53,8 @@ void	ft_new_list(t_lsta **list, int nb)
 		new->prev = last;
 	}
 	else
-	{
 		*list = new;
-
-	}
-	last = new;
-	/*tmp = *list;
-	if (*list == NULL)
-		*list = new;
-	else
-	{
-		while (tmp->next)
-			tmp = tmp->next;
-		tmp->next = new;
-		new->prev = tmp;
-	}*/
-	
+	last = new;	
 }
 
 t_lsta	*ft_new_elem(int nb)

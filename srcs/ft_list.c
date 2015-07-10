@@ -30,32 +30,59 @@ void	lst_del_last(t_lsta *lst)
 	}
 }
 
-void	lst_add(t_lsta **lst1, t_lsta *new)
+void	lst_add(t_lsta **list, t_lsta *new)
 {
-	if (*lst1 == NULL)
-		*lst1 = new;
+	t_lsta			*tmp;
+	static t_lsta	*last = NULL;
+
+	tmp = *list;
+	if (*list == NULL)
+		*list = new;
 	else
-	{
-		new->next = (*lst1);
-		(*lst1) = new;
-	}
-}
-
-void	ft_new_list(t_lsta **list, int nb)
-{
-	t_lsta	*new;
-	static t_lsta *last = NULL;
-
-	new = ft_new_elem(nb);
-	if (last)
 	{
 		last->next = new;
 		new->prev = last;
 	}
-	else
-		*list = new;
-	last = new;	
+	last = new;
+
+	// if (*lst1 == NULL)
+	// 	*lst1 = new;
+	// else
+	// {
+	// 	new->next = (*lst1);
+	// 	(*lst1) = new;
+	// }
 }
+
+// void	ft_new_list(t_lsta **list, int nb)
+// {
+// 	t_lsta	*new;
+// 	static t_lsta *last = NULL;
+// 	// t_lsta	*tmp;
+
+// 	new = ft_new_elem(nb);
+// 	if (last)
+// 	{
+// 		last->next = new;
+// 		new->prev = last;
+// 	}
+// 	else
+// 	{
+// 		*list = new;
+// 	}
+// 	last = new;
+// 	/*tmp = *list;
+// 	if (*list == NULL)
+// 		*list = new;
+// 	else
+// 	{
+// 		while (tmp->next)
+// 			tmp = tmp->next;
+// 		tmp->next = new;
+// 		new->prev = tmp;
+// 	}*/
+	
+// }
 
 t_lsta	*ft_new_elem(int nb)
 {

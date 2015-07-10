@@ -35,7 +35,7 @@ void	print_lst(t_lsta *lst1, t_lsta *lst2)
 		while (tmp1)
 			tmp1 = tmp1->next;
 
-		while (tmp1)
+		while (tmp1->prev)
 		{ft_putstr("TEST\n");
 			ft_putstr("str rev: \n");
 			ft_putnbr(tmp1->data);

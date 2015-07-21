@@ -1,52 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.c                                          :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/28 17:04:00 by etermeau          #+#    #+#             */
-/*   Updated: 2015/05/28 17:04:02 by etermeau         ###   ########.fr       */
+/*   Created: 2015/07/21 11:42:34 by etermeau          #+#    #+#             */
+/*   Updated: 2015/07/21 11:42:35 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h> 
+
 #include "push_swap.h"
 
-void	lst_change(t_lst **src, t_lst **dst)
+void	rotate(t_lst **lst)
 {
 	t_lst *tmp;
+	t_lst *hlp;
 
-	tmp = *src;
+	tmp = *lst;
 	while (tmp && tmp->next)
 		tmp = tmp->next;
+	hlp = tmp;
 	tmp->prev->next = NULL;
-	lst_add(dst, tmp);
-}
-
-void	lst_add(t_lst **list, t_lst *new)
-{
-	t_lst			*tmp;
-	static t_lst	*last = NULL;
-
-	tmp = *list;
-	if (*list == NULL)
-		*list = new;
-	else
-	{
-		last->next = new;
-		new->prev = last;
-	}
-	last = new;
-}
-
-t_lst	*ft_new_elem(int nb)
-{
-	t_lst	*tmp;
-
-	if (!(tmp = (t_lst *)malloc(sizeof(t_lst))))
-		error_code(1);
-	tmp->data = nb;
-	tmp->next = NULL;
-	tmp->prev = NULL;
-	return (tmp);
+	hlp->next = *lst;
+	*lst = hlp;
+	hlp->prev = NULL;
+	ft_print_color(YELLOW, "ra ", 1);
 }

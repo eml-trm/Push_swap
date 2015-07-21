@@ -18,32 +18,39 @@
 
 # define DEBUG printf("%d, %s\n", __LINE__, __FUNCTION__)
 
-typedef struct  	s_lsta
+typedef struct  	s_lst
 {
 	int				data;
-	struct s_lsta	*next;
-	struct s_lsta	*prev;
-}					t_lsta;
+	struct s_lst	*next;
+	struct s_lst	*prev;
+}					t_lst;
+
+// typedef struct 		s_ps
+// {
+// 	struct s_lst	*start;
+// 	struct s_lst	*end;
+// };
 
 /* operations */
 
-void	s_on_a(t_lsta **lst);
-void	s_on_b(t_lsta **lst);
-void	p_on_a(t_lsta **lst1, t_lsta **lst2);
-void	p_on_b(t_lsta **lst1, t_lsta **lst2);
+void	rev_rotate(t_lst **lst);
+void	rotate(t_lst **lst);
+void	swap(t_lst **lst);
+void	p_on_a(t_lst **lst1, t_lst **lst2);
+void	p_on_b(t_lst **lst1, t_lst **lst2);
 
 /* list */
 
-void	lst_add(t_lsta **lst1, t_lsta *new);
-void	ft_new_list(t_lsta **list, int nb);
-void	lst_del_last(t_lsta *lst);
-t_lsta	*ft_new_elem(int nb);
+void	lst_add(t_lst **lst1, t_lst *new);
+void	ft_new_list(t_lst **list, int nb);
+void	lst_change(t_lst **src, t_lst **dst);
+t_lst	*ft_new_elem(int nb);
 
 /* erreur */
 
 void	error_code(int status);
 
 
-void	print_lst(t_lsta *lst1, t_lsta *lst2);
+void	print_lst(t_lst *lst1, t_lst *lst2);
 
 #endif

@@ -9,7 +9,7 @@
 /*   Updated: 2015/05/27 11:50:54 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stdio.h>
 #include "push_swap.h"
 
 void	error_code(int status)
@@ -24,48 +24,46 @@ void	error_code(int status)
 	exit(1);
 }
 
-void	print_lst(t_lsta *lst1, t_lsta *lst2)
+void	print_lst(t_lst *lst1, t_lst *lst2)
 {
-	t_lsta	*tmp1;
-	// t_lsta	*tmp2;
+	t_lst	*tmp1;
+	t_lst	*tmp2;
 
+// 	tmp1 = lst1;
+// 	if (tmp1)
+// 	{
+// 		while (tmp1 && tmp1->next)
+// 			tmp1 = tmp1->next;
+// 		while (tmp1)
+// 		{
+// 			ft_putnbr(tmp1->data);
+// 			tmp1 = tmp1->prev;
+// 		}
+// 	}
+// (void)lst2;
 	tmp1 = lst1;
-	if (tmp1)
+	ft_putstr("\na: ");
+	if (lst1)
 	{
 		while (tmp1)
-			tmp1 = tmp1->next;
-
-		while (tmp1->prev)
-		{ft_putstr("TEST\n");
-			ft_putstr("str rev: \n");
+		{
 			ft_putnbr(tmp1->data);
-			tmp1 = tmp1->prev;
+			ft_putchar(' ');
+			tmp1 = tmp1->next;
 		}
 	}
-(void)lst2;
-	// tmp1 = lst1;
-	// ft_putstr("\na: ");
-	// if (lst1)
-	// {
-	// 	while (tmp1)
-	// 	{
-	// 		ft_putnbr(tmp1->data);
-	// 		ft_putchar(' ');
-	// 		tmp1 = tmp1->next;
-	// 	}
-	// }
-	// ft_putchar('\n');
-	// ft_putstr("b: ");
-	// if (lst2)
-	// {
-	// 	tmp2 = lst2;
-	// 	while (tmp2)
-	// 	{
-	// 		ft_putnbr(tmp2->data);
-	// 		ft_putchar(' ');
-	// 		tmp2 = tmp2->next;
-	// 	}
-	// }
-	// ft_putchar('\n');
-	// ft_putchar('\n');
+	ft_putchar('\n');
+	ft_putstr("b: ");
+	if (lst2)
+	{
+		tmp2 = lst2;
+		while (tmp2)
+		{
+			ft_putnbr(tmp2->data);
+			ft_putchar(' ');
+			tmp2 = tmp2->next;
+		}
+	}
+	ft_putchar('\n');
+	ft_putchar('\n');
 }

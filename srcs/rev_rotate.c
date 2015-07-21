@@ -1,46 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   opt_push.c                                         :+:      :+:    :+:   */
+/*   rev_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/06/02 14:27:29 by etermeau          #+#    #+#             */
-/*   Updated: 2015/06/02 14:27:33 by etermeau         ###   ########.fr       */
+/*   Created: 2015/07/21 15:47:36 by etermeau          #+#    #+#             */
+/*   Updated: 2015/07/21 15:47:39 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h>
 #include "push_swap.h"
 
-void	p_on_a(t_lsta **lst1, t_lsta **lst2)
+void	rev_rotate(t_lst **lst)
 {
-	if (*lst2 == NULL)
-	{
-		return ;
-	}
-	else
-		lst_add(lst1, (*lst2)->next);
+	t_lst *tmp;
+	t_lst *hlp;
 
-	ft_print_color(YELLOW, "pa ", 1);
-}
-
-void	p_on_b(t_lsta **lst1, t_lsta **lst2)
-{
-	t_lsta *tmp;
-
-	tmp = *lst1;
-	if (*lst1 == NULL)
-	{
-		return ;
-	}
-	else
-	{
-		while (tmp && tmp->next)
-		{
-			tmp = tmp->next;
-		}
-		ft_new_list(lst2, tmp->data);
-		// lst_del_last(tmp);
-	}
-	ft_print_color(YELLOW, "pb ", 1);
+	tmp = *lst;
+	hlp = tmp;
+	tmp->next->prev = *lst;
+	while ((*lst) && (*lst)->next)
+		(*lst) = (*lst)->next;
+	hlp->prev = *lst;
+	(*lst)->next = hlp;
+	hlp->next = NULL; 
+	ft_print_color(YELLOW, "rra ", 1);
 }

@@ -45,11 +45,9 @@ static void	check_arg(char **tab)
 
 int		main(int ac, char **av)
 {
-	t_lsta	*lsta;
-	t_lsta	*lstb;
-	int i;
+	t_lst	*lsta;
+	t_lst	*lstb;
 
-	i = 1;
 	lsta = NULL;
 	lstb = NULL;
 	if (ac == 1)
@@ -57,20 +55,30 @@ int		main(int ac, char **av)
 	else
 	{
 		check_arg(av);
-		while (av[i])
+		while (ac - 1)
 		{
-			lst_add(&lsta, ft_new_elem(ft_atoi(av[i])));
-			i++;
+			lst_add(&lsta, ft_new_elem(ft_atoi(av[ac - 1])));
+			ac--;
 		}
+
 		ft_putstr("Debut:");
 		print_lst(lsta, lstb);
 
-		s_on_a(&lsta);
+		swap(&lsta);
 		print_lst(lsta, lstb);
 
-		// p_on_b(&lsta, &lstb);
-		// print_lst(lsta, lstb);
+		p_on_b(&lsta, &lstb);
+		p_on_b(&lsta, &lstb);
+		p_on_b(&lsta, &lstb);
+		print_lst(lsta, lstb);
 
+		rotate(&lsta);
+		rotate(&lstb);
+		print_lst(lsta, lstb);
+
+		rev_rotate(&lsta);
+		// rev_rotate(&lstb);
+		print_lst(lsta, lstb);
 	}
 	ft_print_color(BLUE, "OK\n", 1);
 	return (0);

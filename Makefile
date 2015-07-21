@@ -23,8 +23,10 @@ FLAGS = -Wall -Wextra -Werror -g
 SRC = main.c \
 	  error.c \
 	  ft_list.c \
-	  opt_swap.c \
-	  opt_push.c \
+	  swap.c \
+	  push.c \
+	  rotate.c \
+	  rev_rotate.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -15,15 +15,9 @@
 void	rev_rotate(t_lst **lst)
 {
 	t_lst *tmp;
-	t_lst *hlp;
+	// t_lst *h lp;
 
 	tmp = *lst;
-	hlp = tmp;
-	tmp->next->prev = *lst;
-	while ((*lst) && (*lst)->next)
-		(*lst) = (*lst)->next;
-	hlp->prev = *lst;
-	(*lst)->next = hlp;
-	hlp->next = NULL; 
+	tmp = tmp->next;
 	ft_print_color(YELLOW, "rra ", 1);
 }

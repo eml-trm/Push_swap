@@ -12,6 +12,27 @@
 #include <stdio.h>
 #include "push_swap.h"
 
+void	p_on_a(t_lst **src, t_lst **dst)
+{
+	t_lst *tmp;
+
+	tmp = *src;
+	if (*src == NULL)
+	{
+		return ;
+	}
+	else
+	{
+		while (tmp && tmp->next)
+		{
+			tmp = tmp->next;
+		}
+		lst_change(src, dst);
+	}
+	ft_print_color(YELLOW, "pa ", 1);
+}
+
+
 void	p_on_b(t_lst **src, t_lst **dst)
 {
 	t_lst *tmp;

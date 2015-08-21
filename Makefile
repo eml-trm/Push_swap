@@ -26,7 +26,8 @@ SRC = main.c \
 	  swap.c \
 	  push.c \
 	  rotate.c \
-	  rev_rotate.c
+	  rev_rotate.c \
+	  resolution.c
 
 OBJ = $(SRC:.c=.o)
 

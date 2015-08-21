@@ -20,22 +20,21 @@ void	lst_change(t_lst **src, t_lst **dst)
 	while (tmp && tmp->next)
 		tmp = tmp->next;
 	tmp->prev->next = NULL;
-	lst_add(dst, tmp);
+	tmp->next = NULL;
+	lst_add(dst, tmp); // pb: si c'est le dernier maillon la chaine n'est pas nulle
 }
 
 void	lst_add(t_lst **list, t_lst *new)
 {
-	t_lst			*tmp;
 	static t_lst	*last = NULL;
-
-	tmp = *list;
-	if (*list == NULL)
-		*list = new;
-	else
+	
+	if (last)
 	{
 		last->next = new;
 		new->prev = last;
 	}
+	else
+		*list = new;
 	last = new;
 }
 

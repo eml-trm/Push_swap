@@ -29,18 +29,20 @@ void	print_lst(t_lst *lst1, t_lst *lst2)
 	t_lst	*tmp1;
 	t_lst	*tmp2;
 
-// 	tmp1 = lst1;
+// 	tmp1 = lst2;                       ==> test pour voir si prev de lst2 fonctionne
 // 	if (tmp1)
 // 	{
 // 		while (tmp1 && tmp1->next)
+// 		{	printf("ICI\n");
 // 			tmp1 = tmp1->next;
+// 		}
 // 		while (tmp1)
 // 		{
 // 			ft_putnbr(tmp1->data);
 // 			tmp1 = tmp1->prev;
 // 		}
 // 	}
-// (void)lst2;
+// (void)lst1;
 	tmp1 = lst1;
 	ft_putstr("\na: ");
 	if (lst1)
@@ -59,6 +61,7 @@ void	print_lst(t_lst *lst1, t_lst *lst2)
 		tmp2 = lst2;
 		while (tmp2)
 		{
+			// printf("ICI\n");
 			ft_putnbr(tmp2->data);
 			ft_putchar(' ');
 			tmp2 = tmp2->next;

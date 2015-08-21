@@ -43,42 +43,35 @@ static void	check_arg(char **tab)
 	ft_putchar('\n');
 }
 
+t_lst	*create_list(int ac, char **av)
+{
+	t_lst  *lsta;
+
+	lsta = NULL;
+	check_arg(av);
+	while (ac - 1)
+	{
+		lst_add(&lsta, ft_new_elem(ft_atoi(av[ac - 1])));
+		ac--;
+	}
+	return (lsta);
+}
+
 int		main(int ac, char **av)
 {
+
 	t_lst	*lsta;
-	t_lst	*lstb;
+	t_lst 	*lstb;
 
 	lsta = NULL;
 	lstb = NULL;
+
 	if (ac == 1)
 		error_code(0);
 	else
 	{
-		check_arg(av);
-		while (ac - 1)
-		{
-			lst_add(&lsta, ft_new_elem(ft_atoi(av[ac - 1])));
-			ac--;
-		}
-
-		ft_putstr("Debut:");
-		print_lst(lsta, lstb);
-
-		swap(&lsta);
-		print_lst(lsta, lstb);
-
-		p_on_b(&lsta, &lstb);
-		p_on_b(&lsta, &lstb);
-		p_on_b(&lsta, &lstb);
-		print_lst(lsta, lstb);
-
-		rotate(&lsta);
-		rotate(&lstb);
-		print_lst(lsta, lstb);
-
-		rev_rotate(&lsta);
-		// rev_rotate(&lstb);
-		print_lst(lsta, lstb);
+		lsta = create_list(ac, av);
+		resolution(lsta, lstb);
 	}
 	ft_print_color(BLUE, "OK\n", 1);
 	return (0);

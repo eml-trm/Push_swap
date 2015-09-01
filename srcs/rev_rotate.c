@@ -15,7 +15,6 @@
 void	rev_rotate(t_lst **lst)
 {
 	t_lst *tmp;
-	// t_lst *h lp;
 
 	tmp = *lst;
 	tmp = tmp->next;

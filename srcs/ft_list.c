@@ -17,11 +17,17 @@ void	lst_change(t_lst **src, t_lst **dst)
 	t_lst *tmp;
 
 	tmp = *src;
+	printf("Avant\n");
 	while (tmp && tmp->next)
 		tmp = tmp->next;
-	tmp->prev->next = NULL;
+	printf("Apres\n");
+	if (tmp->prev)
+		tmp->prev->next = NULL;
+	printf("Apres1\n");
 	tmp->next = NULL;
-	lst_add(dst, tmp); // pb: si c'est le dernier maillon la chaine n'est pas nulle
+	printf("Apres2\n");
+	tmp->prev = NULL;
+	lst_add2(dst, tmp);
 }
 
 void	lst_add(t_lst **list, t_lst *new)
@@ -34,8 +40,29 @@ void	lst_add(t_lst **list, t_lst *new)
 		new->prev = last;
 	}
 	else
+	{
 		*list = new;
+	}
 	last = new;
+}
+
+void	lst_add2(t_lst **list, t_lst *new)
+{
+	t_lst	*tmp;
+	
+	tmp = (*list);
+	if (tmp)
+	{
+		while (tmp &&  tmp->next)
+			tmp = tmp->next;
+		tmp->next = new;
+		new->prev = tmp;
+	}
+	else
+	{
+		*list = new;
+	}
+	tmp = new;
 }
 
 t_lst	*ft_new_elem(int nb)

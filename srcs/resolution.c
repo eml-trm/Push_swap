@@ -24,8 +24,8 @@ void	resolution(t_lst *lsta, t_lst *lstb)
 	print_lst(lsta, lstb);
 	p_on_a(&lstb, &lsta);
 	print_lst(lsta, lstb);
-	p_on_b(&lsta, &lstb);
-	print_lst(lsta, lstb);
+	// p_on_b(&lsta, &lstb);
+	// print_lst(lsta, lstb);
 
 	// rotate(&lsta);
 	// rotate(&lstb);

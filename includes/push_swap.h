@@ -40,7 +40,7 @@ void	p_on_a(t_lst **lst1, t_lst **lst2);
 void	p_on_b(t_lst **lst1, t_lst **lst2);
 
 /* list */
-
+void	lst_add2(t_lst **list, t_lst *new);
 void	lst_add(t_lst **lst1, t_lst *new);
 void	ft_new_list(t_lst **list, int nb);
 void	lst_change(t_lst **src, t_lst **dst);

@@ -22,7 +22,7 @@ FLAGS = -Wall -Wextra -Werror -g
 
 SRC = main.c \
 	  error.c \
-	  ft_list.c \
+	  list.c \
 	  swap.c \
 	  push.c \
 	  rotate.c \

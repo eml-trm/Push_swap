@@ -50,7 +50,7 @@ t_lst	*ft_new_elem(int nb);
 
 void	error_code(int status);
 
-void	resolution(t_lst *lsta, t_lst *lstb);
+void	resolution(int nc, t_lst *lsta, t_lst *lstb);
 void	print_lst(t_lst *lst1, t_lst *lst2);
 
 #endif

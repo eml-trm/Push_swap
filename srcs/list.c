@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.c                                          :+:      :+:    :+:   */
+/*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/28 17:04:00 by etermeau          #+#    #+#             */
-/*   Updated: 2015/05/28 17:04:02 by etermeau         ###   ########.fr       */
+/*   Updated: 2015/09/04 15:09:57 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdio.h> 
@@ -17,15 +17,11 @@ void	lst_change(t_lst **src, t_lst **dst)
 	t_lst *tmp;
 
 	tmp = *src;
-	printf("Avant\n");
 	while (tmp && tmp->next)
 		tmp = tmp->next;
-	printf("Apres\n");
 	if (tmp->prev)
 		tmp->prev->next = NULL;
-	printf("Apres1\n");
 	tmp->next = NULL;
-	printf("Apres2\n");
 	tmp->prev = NULL;
 	lst_add2(dst, tmp);
 }

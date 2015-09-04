@@ -18,12 +18,19 @@ void	rotate(t_lst **lst)
 	t_lst *hlp;
 
 	tmp = *lst;
-	while (tmp && tmp->next)
-		tmp = tmp->next;
-	hlp = tmp;
-	tmp->prev->next = NULL;
-	hlp->next = *lst;
-	*lst = hlp;
-	hlp->prev = NULL;
+	if (*lst == NULL)
+		return ;
+	else
+	{
+		if (!(*lst)->next)
+			return ;
+		while (tmp && tmp->next)
+			tmp = tmp->next;
+		hlp = tmp;
+		tmp->prev->next = NULL;
+		hlp->next = *lst;
+		*lst = hlp;
+		hlp->prev = NULL;
+	}
 	ft_print_color(YELLOW, "ra ", 1);
 }

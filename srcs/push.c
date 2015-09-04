@@ -18,11 +18,11 @@ void	p_on_a(t_lst **src, t_lst **dst)
 
 	tmp = *src;
 	if (*src == NULL)
-	{
 		return ;
-	}
 	else
 	{
+		if (!(*src)->next)
+			return ;
 		while (tmp && tmp->next)
 		{
 			tmp = tmp->next;
@@ -39,15 +39,13 @@ void	p_on_b(t_lst **src, t_lst **dst)
 
 	tmp = *src;
 	if (*src == NULL)
-	{
 		return ;
-	}
 	else
 	{
+		if (!(*src)->next)
+			return ;
 		while (tmp && tmp->next)
-		{
 			tmp = tmp->next;
-		}
 		lst_change(src, dst);
 	}
 	ft_print_color(YELLOW, "pb ", 1);

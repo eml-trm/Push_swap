@@ -9,7 +9,7 @@
 /*   Updated: 2015/05/27 11:41:20 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
 #include <unistd.h>
 #include "push_swap.h"
 
@@ -71,7 +71,7 @@ int		main(int ac, char **av)
 	else
 	{
 		lsta = create_list(ac, av);
-		resolution(lsta, lstb);
+		resolution(ac - 1, lsta, lstb);
 	}
 	ft_print_color(BLUE, "OK\n", 1);
 	return (0);

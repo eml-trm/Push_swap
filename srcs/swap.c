@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   opt_swap.c                                         :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -17,13 +17,14 @@ void	swap(t_lst **lst)
 	t_lst *tmp;
 	int swap;
 	
+	if (!(*lst)->next)
+		return ;
 	tmp = *lst;
-	while (tmp && tmp->next->next)
+	while (tmp && tmp->next && tmp->next->next)
 		tmp = tmp->next;
 	swap = tmp->data;
 	tmp->data = tmp->next->data;
 	tmp->next->data = swap;
-
 	ft_print_color(YELLOW, "sa ", 1);
 }
 

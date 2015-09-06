@@ -14,16 +14,17 @@
 
 void	lst_change(t_lst **src, t_lst **dst)
 {
-	t_lst *tmp;
+	t_lst	*tmp;
 
 	tmp = *src;
 	while (tmp && tmp->next)
 		tmp = tmp->next;
 	if (tmp->prev)
 		tmp->prev->next = NULL;
-	tmp->next = NULL;
 	tmp->prev = NULL;
 	lst_add2(dst, tmp);
+	if (tmp == (*src))
+		*src = NULL;
 }
 
 void	lst_add(t_lst **list, t_lst *new)
@@ -36,9 +37,7 @@ void	lst_add(t_lst **list, t_lst *new)
 		new->prev = last;
 	}
 	else
-	{
 		*list = new;
-	}
 	last = new;
 }
 
@@ -55,9 +54,7 @@ void	lst_add2(t_lst **list, t_lst *new)
 		new->prev = tmp;
 	}
 	else
-	{
 		*list = new;
-	}
 	tmp = new;
 }
 

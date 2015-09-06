@@ -12,49 +12,111 @@
 #include <stdio.h>
 #include "push_swap.h"
 
-int		verif_size(int nb)
+int		check_list(t_lst *lst1, t_lst *lst2)
 {
-	int result;
-
-	result = nb % 2;
-	if (result == 0)
-		return (nb / 2);
+	while (lst1 && lst1->next)
+	{
+		if (lst1->data < lst1->next->data)
+			return(1);
+		lst1 = lst1->next;
+	}
+	while (lst2 && lst2->next)
+	{
+		if (lst2->data > lst2->next->data)
+			return (1);
+		lst2 = lst2->next;
+	}
 	return (0);
 }
 
-void	verif_last(t_lst *lst)
+void	remove_list(t_lst **lsta, t_lst **lstb)
 {
 	t_lst	*tmp;
+	int		count;
 
-	tmp = lst;
-
-	while (tmp && tmp->next && tmp->next->next)
+	count = 0;
+	tmp = *lstb;
+	while (tmp)
+	{
+		count++;
 		tmp = tmp->next;
-	if (tmp->data < tmp->next->data)
-		swap(&lst);
+	}
+	while (count-- > 0)
+		p_on_a(lstb, lsta);
 }
 
 void	resolution(int nb, t_lst *lsta, t_lst *lstb)
 {
 	int		size;
 	int		rot;
+	int		swp;
 
-	ft_putstr("Debut:");
+	ft_print_color(BLUE, "Start:\n", 1);
 	print_lst(lsta, lstb);
+	while (check_list(lsta, lstb))
+	{
+		if (verif_swap_a(lsta) == 1)
+		{
+			swap(&lsta);
+			print_lst(lsta, lstb);
+		}
+		
+		size = verif_size(nb);
+		if (size > 0)
+		{
+			while (size-- > 0)
+				p_on_b(&lsta, &lstb);
+			print_lst(lsta, lstb);
+		}
+		rot = verif_rotate_a(lsta);
+		if (rot == 1)
+			rotate(&lsta);
+		else
+			rev_rotate(&lsta);
+		print_lst(lsta, lstb);
 
-	verif_last(lsta);
-	print_lst(lsta, lstb);
+		rot = verif_rotate_b(lstb);
+		if (rot == 1)
+			rotate(&lstb);
+		else
+			rev_rotate(&lstb);
+		print_lst(lsta, lstb);
 
-	size = verif_size(nb);
-	if (size > 0)
-		while (size-- > 0)
-			p_on_b(&lsta, &lstb);
-
-	rotate(&lsta);
-	rotate(&lstb);
-	
-	rot = verif_rotate(lsta); // attention lsta doit etre decroissant// lstb croissant pour remettre sur la pile
- 	if (rot == 1)
-
+		swp = verif_swap_a(lsta);
+		if (swp == 1)
+			swap(&lsta);	
+		swp = verif_swap_b(lstb);
+		if (swp == 1)
+			swap(&lstb);
+		print_lst(lsta, lstb);
+	}
+	remove_list(&lsta, &lstb);
 	print_lst(lsta, lstb);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -13,7 +13,7 @@
 #include "push_swap.h"
 
 void	rev_rotate(t_lst **lst)
-{
+{	ft_print_color(YELLOW, "rra ", 1);
 	t_lst	*tmp;
 	t_lst	*hlp;
 
@@ -31,5 +31,5 @@ void	rev_rotate(t_lst **lst)
 		hlp->next = tmp;
 		tmp->prev = hlp;
 	}
-	ft_print_color(YELLOW, "rra ", 1);
+
 }

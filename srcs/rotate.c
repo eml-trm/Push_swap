@@ -14,6 +14,7 @@
 
 void	rotate(t_lst **lst)
 {
+	ft_print_color(YELLOW, "ra ", 1);
 	t_lst *tmp;
 	t_lst *hlp;
 
@@ -26,11 +27,12 @@ void	rotate(t_lst **lst)
 			return ;
 		while (tmp && tmp->next)
 			tmp = tmp->next;
+		DEBUG;
 		hlp = tmp;
 		tmp->prev->next = NULL;
 		hlp->next = *lst;
 		*lst = hlp;
 		hlp->prev = NULL;
 	}
-	ft_print_color(YELLOW, "ra ", 1);
+	
 }

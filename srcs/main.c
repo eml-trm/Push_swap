@@ -73,6 +73,6 @@ int		main(int ac, char **av)
 		lsta = create_list(ac, av);
 		resolution(ac - 1, lsta, lstb);
 	}
-	ft_print_color(BLUE, "OK\n", 1);
+	ft_print_color(BLUE, "End\n", 1);
 	return (0);
 }

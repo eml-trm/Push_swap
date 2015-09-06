@@ -14,39 +14,23 @@
 
 void	p_on_a(t_lst **src, t_lst **dst)
 {
+	ft_print_color(YELLOW, "pa ", 1);
 	t_lst *tmp;
 
 	tmp = *src;
 	if (*src == NULL)
 		return ;
-	else
-	{
-		if (!(*src)->next)
-			return ;
-		while (tmp && tmp->next)
-		{
-			tmp = tmp->next;
-		}
-		lst_change(src, dst);
-	}
-	ft_print_color(YELLOW, "pa ", 1);
+	lst_change(src, dst);
 }
 
 
 void	p_on_b(t_lst **src, t_lst **dst)
 {
+	ft_print_color(YELLOW, "pb ", 1);
 	t_lst *tmp;
 
 	tmp = *src;
 	if (*src == NULL)
 		return ;
-	else
-	{
-		if (!(*src)->next)
-			return ;
-		while (tmp && tmp->next)
-			tmp = tmp->next;
-		lst_change(src, dst);
-	}
-	ft_print_color(YELLOW, "pb ", 1);
+	lst_change(src, dst);
 }

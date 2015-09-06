@@ -14,8 +14,10 @@
 
 void	swap(t_lst **lst)
 {
-	t_lst *tmp;
-	int swap;
+	ft_print_color(YELLOW, "sa ", 1);
+	
+	t_lst	*tmp;
+	int		swap;
 	
 	if (!(*lst)->next)
 		return ;
@@ -24,7 +26,6 @@ void	swap(t_lst **lst)
 		tmp = tmp->next;
 	swap = tmp->data;
 	tmp->data = tmp->next->data;
-	tmp->next->data = swap;
-	ft_print_color(YELLOW, "sa ", 1);
+	tmp->next->data = swap;	
 }
 

@@ -23,18 +23,20 @@ int		check_list(t_lst *lst1, t_lst *lst2)
 	while (lst2 && lst2->next)
 	{
 		if (lst2->data > lst2->next->data)
-			return (1);
+			return (2);
 		lst2 = lst2->next;
 	}
 	return (0);
 }
 
-void	remove_list(t_lst **lsta, t_lst **lstb)
+int		remove_list(t_lst **lsta, t_lst **lstb)
 {
 	t_lst	*tmp;
+	int		move;
 	int		count;
 
 	count = 0;
+	move = 0;
 	tmp = *lstb;
 	while (tmp)
 	{
@@ -42,56 +44,47 @@ void	remove_list(t_lst **lsta, t_lst **lstb)
 		tmp = tmp->next;
 	}
 	while (count-- > 0)
+	{
 		p_on_a(lstb, lsta);
+		move++;
+	}
+	return (move);
 }
 
-void	resolution(int nb, t_lst *lsta, t_lst *lstb)
+void	resolution(t_lst *lsta, t_lst *lstb)
 {
-	int		size;
-	int		rot;
-	int		swp;
+	static int 	count = 0;
 
 	ft_print_color(BLUE, "Start:\n", 1);
 	print_lst(lsta, lstb);
+
 	while (check_list(lsta, lstb))
 	{
-		if (verif_swap_a(lsta) == 1)
+		while (check_list(lsta, lstb) == 1)
 		{
-			swap(&lsta);
+			if (verif_swap_a(lsta) == 1)
+			{
+				swap(&lsta);
+				count++;
+			}
 			print_lst(lsta, lstb);
+			p_on_b(&lsta, &lstb);
+			count++;
 		}
-		
-		size = verif_size(nb);
-		if (size > 0)
+		while (check_list(lsta, lstb) == 2)
 		{
-			while (size-- > 0)
-				p_on_b(&lsta, &lstb);
-			print_lst(lsta, lstb);
+			if (verif_swap_b(lstb) == 1)
+			{
+				swap(&lstb);
+				count++;
+			}
+			p_on_a(&lstb, &lsta);
+			count++;
 		}
-		rot = verif_rotate_a(lsta);
-		if (rot == 1)
-			rotate(&lsta);
-		else
-			rev_rotate(&lsta);
-		print_lst(lsta, lstb);
-
-		rot = verif_rotate_b(lstb);
-		if (rot == 1)
-			rotate(&lstb);
-		else
-			rev_rotate(&lstb);
-		print_lst(lsta, lstb);
-
-		swp = verif_swap_a(lsta);
-		if (swp == 1)
-			swap(&lsta);	
-		swp = verif_swap_b(lstb);
-		if (swp == 1)
-			swap(&lstb);
-		print_lst(lsta, lstb);
 	}
-	remove_list(&lsta, &lstb);
+	count += remove_list(&lsta, &lstb);
 	print_lst(lsta, lstb);
+	printf("movements = %d\n", count);
 }
 
 

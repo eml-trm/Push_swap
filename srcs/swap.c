@@ -26,6 +26,6 @@ void	swap(t_lst **lst)
 		tmp = tmp->next;
 	swap = tmp->data;
 	tmp->data = tmp->next->data;
-	tmp->next->data = swap;	
+	tmp->next->data = swap;
 }
 

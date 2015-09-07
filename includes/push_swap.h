@@ -31,7 +31,7 @@ int		verif_rotate_a(t_lst *lst);
 int		verif_rotate_b(t_lst *lst);
 int		verif_swap_a(t_lst *lst);
 int		verif_swap_b(t_lst *lst);
-void	resolution(int nc, t_lst *lsta, t_lst *lstb);
+void	resolution(t_lst *lsta, t_lst *lstb);
 
 /* operations */
 void	rev_rotate(t_lst **lst);

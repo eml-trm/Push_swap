@@ -21,6 +21,8 @@ int		verif_swap_b(t_lst *lst)
 	tmp = lst;
 	while (tmp && tmp->next && tmp->next->next)
 		tmp = tmp->next;
+	if (!tmp->next)
+		return (0);
 	if (tmp->data > tmp->next->data)
 		return(1);
 	return(0);
@@ -30,9 +32,13 @@ int		verif_swap_a(t_lst *lst)
 {
 	t_lst *tmp;
 
+	if (!lst)
+		return (0);
 	tmp = lst;
 	while (tmp && tmp->next && tmp->next->next)
 		tmp = tmp->next;
+	if (!tmp->next)
+		return (0);
 	if (tmp->data < tmp->next->data)
 		return(1);
 	return(0);

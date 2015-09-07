@@ -71,7 +71,7 @@ int		main(int ac, char **av)
 	else
 	{
 		lsta = create_list(ac, av);
-		resolution(ac - 1, lsta, lstb);
+		resolution(lsta, lstb);
 	}
 	ft_print_color(BLUE, "End\n", 1);
 	return (0);

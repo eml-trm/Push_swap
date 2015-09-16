@@ -12,24 +12,15 @@
 #include <stdio.h>
 #include "push_swap.h"
 
-void	p_on_a(t_lst **src, t_lst **dst)
+void	push(t_lst **src, t_lst **dst)
 {
-	ft_print_color(YELLOW, "pa ", 1);
 	t_lst *tmp;
 
 	tmp = *src;
-	if (*src == NULL)
-		return ;
-	lst_change(src, dst);
-}
-
-
-void	p_on_b(t_lst **src, t_lst **dst)
-{
-	ft_print_color(YELLOW, "pb ", 1);
-	t_lst *tmp;
-
-	tmp = *src;
+	if (tmp->name == 'a')
+		ft_print_color(YELLOW, "pb ", 1);
+	else
+		ft_print_color(YELLOW, "pa ", 1);
 	if (*src == NULL)
 		return ;
 	lst_change(src, dst);

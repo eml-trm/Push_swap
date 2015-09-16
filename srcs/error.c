@@ -21,6 +21,8 @@ void	error_code(int status)
 	}
 	if (status == 1)
 		ft_print_color(RED, "Error: Malloc\n", 2);
+	if (status == 2)
+		ft_print_color(RED, "Options invalid\n", 2);
 	exit(1);
 }
 

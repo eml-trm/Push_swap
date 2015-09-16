@@ -9,49 +9,60 @@
 /*   Updated: 2015/05/27 11:41:20 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stdio.h>
 #include <unistd.h>
 #include "push_swap.h"
 
-static int	check_double(char **tab, char *line, int len)
+static int 	check_double(int nb, t_lst **lst)
 {
-	int i;
+	t_lst	*tmp;
 
-	i = 1;
-	while (i < len)
+	tmp = *lst;
+	while (tmp && tmp->next)
 	{
-		if (ft_strstr(tab[i], line))
+		if (tmp->data == nb)
 			return (1);
-		i++;
+		tmp = tmp->next;
 	}
 	return (0);
 }
 
-static void	check_arg(char **tab)
+static int	check_arg(char **tab)
 {
 	int i;
+	int count;
 
 	i = 1;
-	while (tab[i])
+	count = 1;
+	while (tab[i][0] == '-' && (tab[i][1] >= 97 && tab[i][1] <= 122))
 	{
-		if (ft_isint(tab[i], ft_strlen(tab[i])) == 1)
-			error_code(0);
-		if (check_double(tab, tab[i], i) == 1)
-			error_code(0);
+		is_option(tab[i]);
+		count++;
 		i++;
 	}
-	ft_putchar('\n');
+	while (tab[i])
+	{
+		if (ft_isint(tab[i], ft_strlen(tab[i])) == 0)
+			i++;
+		else
+			error_code(0);
+	}
+	return (count);
 }
 
-t_lst	*create_list(int ac, char **av)
+t_lst		*create_list(int ac, char **av)
 {
-	t_lst  *lsta;
+	t_lst	*lsta;
+	int		nb;
+	int		i;
 
 	lsta = NULL;
-	check_arg(av);
-	while (ac - 1)
+	i = check_arg(av);
+	while (ac - i)
 	{
-		lst_add(&lsta, ft_new_elem(ft_atoi(av[ac - 1])));
+		nb = ft_atoi(av[ac - 1]);
+		if (check_double(nb, &lsta) == 0)
+			lst_add(&lsta, ft_new_elem(nb));
 		ac--;
 	}
 	return (lsta);
@@ -65,14 +76,13 @@ int		main(int ac, char **av)
 
 	lsta = NULL;
 	lstb = NULL;
-
 	if (ac == 1)
 		error_code(0);
 	else
 	{
+		options();
 		lsta = create_list(ac, av);
 		resolution(lsta, lstb);
 	}
-	ft_print_color(BLUE, "End\n", 1);
 	return (0);
 }

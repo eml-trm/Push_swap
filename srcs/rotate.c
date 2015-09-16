@@ -14,11 +14,14 @@
 
 void	rotate(t_lst **lst)
 {
-	ft_print_color(YELLOW, "ra ", 1);
 	t_lst *tmp;
 	t_lst *hlp;
 
 	tmp = *lst;
+	if (tmp->name == 'a')
+		ft_print_color(YELLOW, "ra ", 1);
+	else
+		ft_print_color(YELLOW, "rb ", 1);
 	if (*lst == NULL)
 		return ;
 	else
@@ -34,5 +37,4 @@ void	rotate(t_lst **lst)
 		*lst = hlp;
 		hlp->prev = NULL;
 	}
-	
 }

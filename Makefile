@@ -28,7 +28,8 @@ SRC = main.c \
 	  rotate.c \
 	  rev_rotate.c \
 	  resolution.c \
-	  verifications.c
+	  verifications.c \
+	  options.c
 
 OBJ = $(SRC:.c=.o)
 

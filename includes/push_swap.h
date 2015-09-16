@@ -21,9 +21,21 @@
 typedef struct  	s_lst
 {
 	int				data;
+	char			name;
 	struct s_lst	*next;
 	struct s_lst	*prev;
 }					t_lst;
+
+typedef struct  	s_opt
+{
+	int 			v;
+	int				n;
+	int				active;
+}					t_opt;
+
+/* options */
+void 	is_option(char *str);
+t_opt	*options(void);
 
 /* resolution */
 int		verif_size(int nb);
@@ -37,8 +49,7 @@ void	resolution(t_lst *lsta, t_lst *lstb);
 void	rev_rotate(t_lst **lst);
 void	rotate(t_lst **lst);
 void	swap(t_lst **lst);
-void	p_on_a(t_lst **lst1, t_lst **lst2);
-void	p_on_b(t_lst **lst1, t_lst **lst2);
+void	push(t_lst **lst1, t_lst **lst2);
 
 /* list */
 void	lst_add2(t_lst **list, t_lst *new);

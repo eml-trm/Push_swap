@@ -55,6 +55,10 @@ void	lst_add2(t_lst **list, t_lst *new)
 	}
 	else
 		*list = new;
+	if (new->name == 'a')
+		new->name = 'b';
+	else
+		new->name = 'a';
 	tmp = new;
 }
 
@@ -65,6 +69,7 @@ t_lst	*ft_new_elem(int nb)
 	if (!(tmp = (t_lst *)malloc(sizeof(t_lst))))
 		error_code(1);
 	tmp->data = nb;
+	tmp->name = 'a';
 	tmp->next = NULL;
 	tmp->prev = NULL;
 	return (tmp);

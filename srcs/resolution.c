@@ -45,7 +45,7 @@ int		remove_list(t_lst **lsta, t_lst **lstb)
 	}
 	while (count-- > 0)
 	{
-		p_on_a(lstb, lsta);
+		push(lstb, lsta);
 		move++;
 	}
 	return (move);
@@ -54,10 +54,9 @@ int		remove_list(t_lst **lsta, t_lst **lstb)
 void	resolution(t_lst *lsta, t_lst *lstb)
 {
 	static int 	count = 0;
-
-	ft_print_color(BLUE, "Start:\n", 1);
-	print_lst(lsta, lstb);
-
+	
+	if (options()->v)
+		print_lst(lsta, lstb);
 	while (check_list(lsta, lstb))
 	{
 		while (check_list(lsta, lstb) == 1)
@@ -65,10 +64,13 @@ void	resolution(t_lst *lsta, t_lst *lstb)
 			if (verif_swap_a(lsta) == 1)
 			{
 				swap(&lsta);
+				if (options()->v)
+					print_lst(lsta, lstb);
 				count++;
 			}
-			print_lst(lsta, lstb);
-			p_on_b(&lsta, &lstb);
+			push(&lsta, &lstb);
+			if (options()->v)
+				print_lst(lsta, lstb);
 			count++;
 		}
 		while (check_list(lsta, lstb) == 2)
@@ -78,13 +80,19 @@ void	resolution(t_lst *lsta, t_lst *lstb)
 				swap(&lstb);
 				count++;
 			}
-			p_on_a(&lstb, &lsta);
+			push(&lstb, &lsta);
 			count++;
 		}
 	}
 	count += remove_list(&lsta, &lstb);
-	print_lst(lsta, lstb);
-	printf("movements = %d\n", count);
+	if (options()->v)
+		print_lst(lsta, lstb);
+	if (options()->n)
+	{
+		ft_putstr("\nResolve in ");
+		ft_putnbr(count);
+		ft_putstr(" moves\n");
+	}
 }
 
 

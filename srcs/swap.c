@@ -13,15 +13,17 @@
 #include "push_swap.h"
 
 void	swap(t_lst **lst)
-{
-	ft_print_color(YELLOW, "sa ", 1);
-	
+{	
 	t_lst	*tmp;
 	int		swap;
 	
 	if (!(*lst)->next)
 		return ;
 	tmp = *lst;
+	if (tmp->name == 'a')
+		ft_print_color(YELLOW, "sa ", 1);
+	else
+		ft_print_color(YELLOW, "sb ", 1);
 	while (tmp && tmp->next && tmp->next->next)
 		tmp = tmp->next;
 	swap = tmp->data;

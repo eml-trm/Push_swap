@@ -34,6 +34,8 @@ typedef struct  	s_opt
 }					t_opt;
 
 /* options */
+void	apply_opt_n(int nb);
+void	apply_opt_v(t_lst *lst1, t_lst *lst2);
 void 	is_option(char *str);
 t_opt	*options(void);
 

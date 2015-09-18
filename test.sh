@@ -1,1 +1,1 @@
-./push_swap `Python -c "import random; print ' '.join([str(a) for a in random.sample(xrange(-2000000, 2000000), 200)])"`
+./push_swap `Python -c "import random; print ' '.join([str(a) for a in random.sample(xrange(-2000000, 2000000), 2000)])"`

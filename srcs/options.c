@@ -33,6 +33,7 @@ void	is_option(char *str)
 			error_code(2);
 		i++;
 	}
+
 }
 
 t_opt	*options(void)
@@ -50,4 +51,19 @@ t_opt	*options(void)
 	return (opt);
 
 }
- /////////// voir pour - seul  dans arg + bornes neg qui ne rentre pas alors que si 
+
+void	apply_opt_n(int nb)
+{
+	if (options()->n)
+	{
+		ft_putstr("\nResolve in ");
+		ft_putnbr(nb);
+		ft_putstr(" moves\n");
+	}
+}
+
+void	apply_opt_v(t_lst *lsta, t_lst *lstb)
+{
+	if (options()->v)
+		print_lst(lsta, lstb);
+}

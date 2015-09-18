@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "push_swap.h"
 
-int		check_list(t_lst *lst1, t_lst *lst2)
+int		is_sort(t_lst *lst1, t_lst *lst2)
 {
 	while (lst1 && lst1->next)
 	{
@@ -55,25 +55,24 @@ void	resolution(t_lst *lsta, t_lst *lstb)
 {
 	static int 	count = 0;
 	
-	if (options()->v)
-		print_lst(lsta, lstb);
-	while (check_list(lsta, lstb))
+	while (is_sort(lsta, lstb))
 	{
-		while (check_list(lsta, lstb) == 1)
+		while (is_sort(lsta, lstb) == 1)
 		{
 			if (verif_swap_a(lsta) == 1)
 			{
 				swap(&lsta);
-				if (options()->v)
-					print_lst(lsta, lstb);
+				apply_opt_v(lsta, lstb);
 				count++;
 			}
-			push(&lsta, &lstb);
-			if (options()->v)
-				print_lst(lsta, lstb);
-			count++;
+			if (is_sort(lsta, lstb) == 1)
+			{
+				push(&lsta, &lstb);
+				apply_opt_v(lsta, lstb);
+				count++;
+			}
 		}
-		while (check_list(lsta, lstb) == 2)
+		while (is_sort(lsta, lstb) == 2)
 		{
 			if (verif_swap_b(lstb) == 1)
 			{
@@ -85,14 +84,8 @@ void	resolution(t_lst *lsta, t_lst *lstb)
 		}
 	}
 	count += remove_list(&lsta, &lstb);
-	if (options()->v)
-		print_lst(lsta, lstb);
-	if (options()->n)
-	{
-		ft_putstr("\nResolve in ");
-		ft_putnbr(count);
-		ft_putstr(" moves\n");
-	}
+	apply_opt_v(lsta, lstb);
+	apply_opt_n(count);
 }
 
 

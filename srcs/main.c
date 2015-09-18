@@ -39,9 +39,12 @@ static int	check_arg(char **tab)
 		is_option(tab[i]);
 		count++;
 		i++;
-	}
+	}	
+
 	while (tab[i])
 	{
+		if (tab[i][0] == '-' && !tab[i][1])
+			error_code(2);
 		if (ft_isint(tab[i], ft_strlen(tab[i])) == 0)
 			i++;
 		else
@@ -82,6 +85,7 @@ int		main(int ac, char **av)
 	{
 		options();
 		lsta = create_list(ac, av);
+		apply_opt_v(lsta, lstb);
 		resolution(lsta, lstb);
 	}
 	return (0);

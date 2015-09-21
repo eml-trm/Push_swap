@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/07/21 11:42:34 by etermeau          #+#    #+#             */
-/*   Updated: 2015/07/21 11:42:35 by etermeau         ###   ########.fr       */
+/*   Created: 2015/09/21 17:59:13 by etermeau          #+#    #+#             */
+/*   Updated: 2015/09/21 17:59:15 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate(t_lst **lst)
+int		a_is_sort(t_lst *lsta)
 {
-	t_lst *tmp;
-	t_lst *hlp;
+	t_lst	*tmp1;
 
-	tmp = *lst;
-	if (tmp->name == 'a')
-		ft_print_color(YELLOW, "ra ", 1);
-	else
-		ft_print_color(YELLOW, "rb ", 1);
-	if (*lst == NULL)
-		return ;
-	else
+	tmp1 = lsta;
+	while (tmp1 && tmp1->next)
 	{
-		if (!(*lst)->next)
-			return ;
-		while (tmp && tmp->next)
-			tmp = tmp->next;
-		hlp = tmp;
-		tmp->prev->next = NULL;
-		hlp->next = *lst;
-		*lst = hlp;
-		hlp->prev = NULL;
+		if (tmp1->data < tmp1->next->data)
+			return(1);
+		tmp1 = tmp1->next;
 	}
+	return (0);
+}
+
+int		b_is_sort(t_lst *lstb)
+{
+	t_lst	*tmp2;
+
+	tmp2 = lstb;
+	while (tmp2 && tmp2->next)
+	{
+
+		if (tmp2->data > tmp2->next->data)
+			return (1);
+		tmp2 = tmp2->next;
+	}
+	return (0);
 }

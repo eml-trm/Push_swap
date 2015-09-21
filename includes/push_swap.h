@@ -40,6 +40,8 @@ void 	is_option(char *str);
 t_opt	*options(void);
 
 /* resolution */
+int		b_is_sort(t_lst *lstb);
+int		a_is_sort(t_lst *lsta);
 int		verif_size(int nb);
 int		verif_rotate_a(t_lst *lst);
 int		verif_rotate_b(t_lst *lst);
@@ -64,4 +66,8 @@ t_lst	*ft_new_elem(int nb);
 void	error_code(int status);
 void	print_lst(t_lst *lst1, t_lst *lst2);
 
+
+/* test */
+int		verif_data(t_lst *lst, int nb);
+int		is_pivot(t_lst *lst);
 #endif

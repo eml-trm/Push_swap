@@ -14,17 +14,23 @@
 
 int		is_sort(t_lst *lst1, t_lst *lst2)
 {
-	while (lst1 && lst1->next)
+	t_lst	*tmp1;
+	t_lst	*tmp2;
+
+	tmp1 = lst1;
+	tmp2 = lst2;
+	while (tmp1 && tmp1->next)
 	{
-		if (lst1->data < lst1->next->data)
+		if (tmp1->data < tmp1->next->data)
 			return(1);
-		lst1 = lst1->next;
+		tmp1 = tmp1->next;
 	}
-	while (lst2 && lst2->next)
+	while (tmp2 && tmp2->next)
 	{
-		if (lst2->data > lst2->next->data)
+
+		if (tmp2->data > tmp2->next->data)
 			return (2);
-		lst2 = lst2->next;
+		tmp2 = tmp2->next;
 	}
 	return (0);
 }
@@ -55,6 +61,13 @@ void	resolution(t_lst *lsta, t_lst *lstb)
 {
 	static int 	count = 0;
 	
+	// 	int			pivot;
+
+// 	pivot = is_pivot(lsta);
+// 	push(&lsta, &lstb);
+// 	count++;
+// 	apply_opt_v(lsta, lstb);
+
 	while (is_sort(lsta, lstb))
 	{
 		while (is_sort(lsta, lstb) == 1)
@@ -87,30 +100,4 @@ void	resolution(t_lst *lsta, t_lst *lstb)
 	apply_opt_v(lsta, lstb);
 	apply_opt_n(count);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

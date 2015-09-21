@@ -44,39 +44,61 @@ int		verif_swap_a(t_lst *lst)
 	return(0);
 }
 
-// int		verif_rotate_b(t_lst *lst)
-// {
-// 	t_lst	*tmp;
-// 	t_lst	*tmp2;
+int		verif_data(t_lst *lst, int nb)
+{
+	t_lst *tmp;
 
-// 	tmp = lst;
-// 	tmp2 = tmp;
-// 	if (!lst)
-// 		return (0);
-// 	if (tmp2->data > tmp->next->data)
-// 		return(2);
-// 	while (tmp && tmp->next)
-// 		tmp = tmp->next;
-// 	if (tmp2->data > tmp->data)
-// 		return (1);
-// 	return (0);
-// }
+	tmp = lst;
+	while (tmp && tmp->next)
+		tmp = tmp->next;
+	if (tmp->data < nb)
+		return (1);
+	return (0);
+}
 
-// int		verif_rotate_a(t_lst *lst)
-// {
-// 	t_lst	*tmp;
-// 	t_lst	*tmp2;
+int		is_pivot(t_lst *lst)
+{
+	t_lst *tmp;
 
-// 	tmp = lst;
-// 	tmp2 = tmp;
-// 	if (tmp2->data < tmp->next->data)
-// 		return(2);
-// 	while (tmp && tmp->next)
-// 		tmp = tmp->next;
-// 	if (tmp2->data < tmp->data)
-// 		return (1);
-// 	return (0);
-// }
+	tmp = lst;
+	while (tmp && tmp->next)
+		tmp = tmp->next;
+	return(tmp->data);
+}
+
+int		verif_rotate_b(t_lst *lst)
+{
+	t_lst	*tmp;
+	t_lst	*tmp2;
+
+	tmp = lst;
+	tmp2 = tmp;
+	if (!lst)
+		return (0);
+	if (tmp2->data > tmp->next->data)
+		return(2);
+	while (tmp && tmp->next)
+		tmp = tmp->next;
+	if (tmp2->data > tmp->data)
+		return (1);
+	return (0);
+}
+
+int		verif_rotate_a(t_lst *lst)
+{
+	t_lst	*tmp;
+	t_lst	*tmp2;
+
+	tmp = lst;
+	tmp2 = tmp;
+	if (tmp2->data < tmp->next->data)
+		return(2);
+	while (tmp && tmp->next)
+		tmp = tmp->next;
+	if (tmp2->data < tmp->data)
+		return (1);
+	return (0);
+}
 
 // int		verif_size(int nb)
 // {

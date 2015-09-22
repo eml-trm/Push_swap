@@ -15,11 +15,11 @@
 
 char	*ft_strmap(char const *s, char (*f)(char))
 {
-	int		i;
-	char	*str;
+	int			i;
+	char		*str;
 
 	i = 0;
-	str = malloc(sizeof((ft_strlen(s) + 1)));
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
 	if (s && f)
 	{
 		while (s[i])

@@ -30,7 +30,7 @@ char	*ft_strtrim(char const *s)
 			i++;
 		while (s[j] && (s[j] < 33 || s[j] >= 126))
 			j--;
-		str = malloc(sizeof((j - i) + 1));
+		str = (char *)malloc(sizeof(char) * (j - i) + 1);
 		if (!str)
 			return (NULL);
 		while (i <= j)

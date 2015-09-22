@@ -9,7 +9,7 @@
 /*   Updated: 2015/09/04 15:09:57 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h> 
+
 #include "push_swap.h"
 
 void	lst_change(t_lst **src, t_lst **dst)
@@ -30,7 +30,7 @@ void	lst_change(t_lst **src, t_lst **dst)
 void	lst_add(t_lst **list, t_lst *new)
 {
 	static t_lst	*last = NULL;
-	
+
 	if (last)
 	{
 		last->next = new;
@@ -44,11 +44,11 @@ void	lst_add(t_lst **list, t_lst *new)
 void	lst_add2(t_lst **list, t_lst *new)
 {
 	t_lst	*tmp;
-	
+
 	tmp = (*list);
 	if (tmp)
 	{
-		while (tmp &&  tmp->next)
+		while (tmp && tmp->next)
 			tmp = tmp->next;
 		tmp->next = new;
 		new->prev = tmp;

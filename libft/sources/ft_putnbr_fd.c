@@ -26,7 +26,7 @@ void	ft_putnbr_fd(int n, int fd)
 	{
 		if (n < 0)
 		{
-			write (fd, &c, 1);
+			write(fd, &c, 1);
 			n *= -1;
 		}
 		if (n <= 9)

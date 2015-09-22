@@ -9,12 +9,12 @@
 /*   Updated: 2015/06/02 14:27:33 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
 #include "push_swap.h"
 
 void	push(t_lst **src, t_lst **dst)
 {
-	t_lst *tmp;
+	t_lst	*tmp;
 
 	tmp = *src;
 	if (tmp->name == 'a')

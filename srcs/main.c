@@ -9,11 +9,11 @@
 /*   Updated: 2015/05/27 11:41:20 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
 #include <unistd.h>
 #include "push_swap.h"
 
-static int 	check_double(int nb, t_lst **lst)
+static int	check_double(int nb, t_lst **lst)
 {
 	t_lst	*tmp;
 
@@ -29,8 +29,8 @@ static int 	check_double(int nb, t_lst **lst)
 
 static int	check_arg(char **tab)
 {
-	int i;
-	int count;
+	int		i;
+	int		count;
 
 	i = 1;
 	count = 1;
@@ -39,8 +39,7 @@ static int	check_arg(char **tab)
 		is_option(tab[i]);
 		count++;
 		i++;
-	}	
-
+	}
 	while (tab[i])
 	{
 		if (tab[i][0] == '-' && !tab[i][1])
@@ -71,11 +70,10 @@ t_lst		*create_list(int ac, char **av)
 	return (lsta);
 }
 
-int		main(int ac, char **av)
+int			main(int ac, char **av)
 {
-
 	t_lst	*lsta;
-	t_lst 	*lstb;
+	t_lst	*lstb;
 
 	lsta = NULL;
 	lstb = NULL;

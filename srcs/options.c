@@ -33,7 +33,6 @@ void	is_option(char *str)
 			error_code(2);
 		i++;
 	}
-
 }
 
 t_opt	*options(void)
@@ -49,7 +48,6 @@ t_opt	*options(void)
 		opt->active = 0;
 	}
 	return (opt);
-
 }
 
 void	apply_opt_n(int nb)

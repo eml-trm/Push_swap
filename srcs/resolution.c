@@ -9,7 +9,7 @@
 /*   Updated: 2015/07/29 11:52:35 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
 #include "push_swap.h"
 
 int		is_sort(t_lst *lst1, t_lst *lst2)
@@ -22,12 +22,11 @@ int		is_sort(t_lst *lst1, t_lst *lst2)
 	while (tmp1 && tmp1->next)
 	{
 		if (tmp1->data < tmp1->next->data)
-			return(1);
+			return (1);
 		tmp1 = tmp1->next;
 	}
 	while (tmp2 && tmp2->next)
 	{
-
 		if (tmp2->data > tmp2->next->data)
 			return (2);
 		tmp2 = tmp2->next;
@@ -52,6 +51,7 @@ int		remove_list(t_lst **lsta, t_lst **lstb)
 	while (count-- > 0)
 	{
 		push(lstb, lsta);
+		apply_opt_v(*lsta, *lstb);
 		move++;
 	}
 	return (move);
@@ -59,20 +59,13 @@ int		remove_list(t_lst **lsta, t_lst **lstb)
 
 void	resolution(t_lst *lsta, t_lst *lstb)
 {
-	static int 	count = 0;
-	
-	// 	int			pivot;
-
-// 	pivot = is_pivot(lsta);
-// 	push(&lsta, &lstb);
-// 	count++;
-// 	apply_opt_v(lsta, lstb);
+	static int	count = 0;
 
 	while (is_sort(lsta, lstb))
 	{
 		while (is_sort(lsta, lstb) == 1)
 		{
-			if (verif_swap_a(lsta) == 1)
+			if (verif_swap_a(lsta))
 			{
 				swap(&lsta);
 				apply_opt_v(lsta, lstb);
@@ -87,17 +80,27 @@ void	resolution(t_lst *lsta, t_lst *lstb)
 		}
 		while (is_sort(lsta, lstb) == 2)
 		{
-			if (verif_swap_b(lstb) == 1)
+			if (verif_swap_b(lstb))
 			{
 				swap(&lstb);
+				apply_opt_v(lsta, lstb);
 				count++;
 			}
-			push(&lstb, &lsta);
-			count++;
+			if (is_sort(lsta, lstb) == 2)
+			{
+				push(&lstb, &lsta);
+				apply_opt_v(lsta, lstb);
+				if (verif_swap_a(lsta))
+				{
+					swap(&lsta);
+					apply_opt_v(lsta, lstb);
+					count++;
+				}
+				count++;
+			}
 		}
+		count += remove_list(&lsta, &lstb);
 	}
-	count += remove_list(&lsta, &lstb);
 	apply_opt_v(lsta, lstb);
 	apply_opt_n(count);
 }
-

@@ -20,7 +20,7 @@ int		a_is_sort(t_lst *lsta)
 	while (tmp1 && tmp1->next)
 	{
 		if (tmp1->data < tmp1->next->data)
-			return(1);
+			return (1);
 		tmp1 = tmp1->next;
 	}
 	return (0);
@@ -33,7 +33,6 @@ int		b_is_sort(t_lst *lstb)
 	tmp2 = lstb;
 	while (tmp2 && tmp2->next)
 	{
-
 		if (tmp2->data > tmp2->next->data)
 			return (1);
 		tmp2 = tmp2->next;

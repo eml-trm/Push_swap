@@ -9,7 +9,7 @@
 /*   Updated: 2015/05/27 11:50:54 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
 #include "push_swap.h"
 
 void	error_code(int status)
@@ -34,16 +34,13 @@ void	print_lst(t_lst *lst1, t_lst *lst2)
 	tmp1 = lst1;
 	ft_putstr("\na: ");
 	if (lst1)
-	{
 		while (tmp1)
 		{
 			ft_putnbr(tmp1->data);
 			ft_putchar(' ');
 			tmp1 = tmp1->next;
 		}
-	}
-	ft_putchar('\n');
-	ft_putstr("b: ");
+	ft_putstr("\nb: ");
 	if (lst2)
 	{
 		tmp2 = lst2;
@@ -54,6 +51,5 @@ void	print_lst(t_lst *lst1, t_lst *lst2)
 			tmp2 = tmp2->next;
 		}
 	}
-	ft_putchar('\n');
-	ft_putchar('\n');
+	ft_putstr("\n\n");
 }

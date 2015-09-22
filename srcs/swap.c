@@ -13,10 +13,10 @@
 #include "push_swap.h"
 
 void	swap(t_lst **lst)
-{	
+{
 	t_lst	*tmp;
 	int		swap;
-	
+
 	if (!(*lst)->next)
 		return ;
 	tmp = *lst;
@@ -30,4 +30,3 @@ void	swap(t_lst **lst)
 	tmp->data = tmp->next->data;
 	tmp->next->data = swap;
 }
-

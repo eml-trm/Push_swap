@@ -66,6 +66,16 @@ void	resolve_b(t_lst **lsta, t_lst **lstb)
 
 void	resolution(t_lst *lsta, t_lst *lstb)
 {
+	if (verif_rotate_a(lsta) == 1)
+	{
+		rev_rotate(&lsta);
+		apply_opt_v(lsta, lstb);
+	}
+	if (verif_rotate_a(lsta) == 2)
+	{
+		rotate(&lsta);
+		apply_opt_v(lsta, lstb);
+	}
 	while (is_sort(lsta, lstb))
 	{
 		while (a_is_sort(lsta) == 1)
@@ -74,4 +84,6 @@ void	resolution(t_lst *lsta, t_lst *lstb)
 			resolve_b(&lsta, &lstb);
 		remove_list(&lsta, &lstb);
 	}
+	ft_print_color(MAGENTA, "\n\nEnd:", 1);
+	print_lst(lsta, lstb);
 }

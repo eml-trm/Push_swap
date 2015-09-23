@@ -69,11 +69,11 @@ int		verif_rotate_a(t_lst *lst)
 
 	tmp = lst;
 	tmp2 = tmp;
-	if (tmp2->data < tmp->next->data)
-		return (2);
 	while (tmp && tmp->next)
 		tmp = tmp->next;
-	if (tmp2->data < tmp->data)
+	if (tmp2->data < tmp->data && tmp2->data < tmp2->next->data)
 		return (1);
+	if (tmp2->data < tmp->data)
+		return (2);
 	return (0);
 }

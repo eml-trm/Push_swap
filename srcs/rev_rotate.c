@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 void	rev_rotate(t_lst **lst)
 {
@@ -22,14 +23,16 @@ void	rev_rotate(t_lst **lst)
 		ft_print_color(YELLOW, "rra ", 1);
 	else
 		ft_print_color(YELLOW, "rrb ", 1);
-	if (*lst)
+	if (*lst == NULL)
+		return ;
+	else
 	{
-		hlp = tmp->next;
-		tmp->next = NULL;
-		if (!hlp)
+		if (!(*lst)->next)
 			return ;
+		*lst = (*lst)->next;
+		hlp = tmp->next;
 		hlp->prev = NULL;
-		*lst = hlp;
+		tmp->next = NULL;
 		while (hlp && hlp->next)
 			hlp = hlp->next;
 		hlp->next = tmp;

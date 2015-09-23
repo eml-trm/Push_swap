@@ -9,7 +9,7 @@
 /*   Updated: 2015/05/27 11:41:20 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stdio.h>
 #include <unistd.h>
 #include "push_swap.h"
 
@@ -18,7 +18,7 @@ static int	check_double(int nb, t_lst **lst)
 	t_lst	*tmp;
 
 	tmp = *lst;
-	while (tmp && tmp->next)
+	while (tmp)
 	{
 		if (tmp->data == nb)
 			return (1);
@@ -65,6 +65,8 @@ t_lst		*create_list(int ac, char **av)
 		nb = ft_atoi(av[ac - 1]);
 		if (check_double(nb, &lsta) == 0)
 			lst_add(&lsta, ft_new_elem(nb));
+		else
+			error_code(0);
 		ac--;
 	}
 	return (lsta);
@@ -86,8 +88,6 @@ int			main(int ac, char **av)
 		ft_print_color(MAGENTA, "\nStart:", 1);
 		print_lst(lsta, lstb);
 		resolution(lsta, lstb);
-		ft_print_color(MAGENTA, "\n\nEnd:", 1);
-		print_lst(lsta, lstb);
 		apply_opt_n();
 	}
 	return (0);

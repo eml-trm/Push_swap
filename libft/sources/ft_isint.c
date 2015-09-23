@@ -9,7 +9,7 @@
 /*   Updated: 2015/05/27 12:05:24 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
 #include "libft.h"
 
 int		ft_isint(char *str, int len)

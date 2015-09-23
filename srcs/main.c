@@ -20,6 +20,7 @@ static int	check_double(int nb, t_lst **lst)
 	tmp = *lst;
 	while (tmp)
 	{
+		printf("data= %d nb= %d\n", tmp->data, nb);
 		if (tmp->data == nb)
 			return (1);
 		tmp = tmp->next;
@@ -63,6 +64,7 @@ t_lst		*create_list(int ac, char **av)
 	while (ac - i)
 	{
 		nb = ft_atoi(av[ac - 1]);
+		printf("nb %d\n", nb);
 		if (check_double(nb, &lsta) == 0)
 			lst_add(&lsta, ft_new_elem(nb));
 		else

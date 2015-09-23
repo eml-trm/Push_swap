@@ -12,16 +12,16 @@
 
 #include "push_swap.h"
 
-void	swap(t_lst **lst)
+int		swap(t_lst **lst)
 {
 	t_lst	*tmp;
 	int		swap;
 
 	if (!(*lst)->next)
-		return ;
+		return (0);
 	tmp = *lst;
 	if (tmp->name == 'a')
-		ft_print_color(YELLOW, "sa ", 1);
+		ft_print_color(BLUE, "sa ", 1);
 	else
 		ft_print_color(YELLOW, "sb ", 1);
 	while (tmp && tmp->next && tmp->next->next)
@@ -29,4 +29,5 @@ void	swap(t_lst **lst)
 	swap = tmp->data;
 	tmp->data = tmp->next->data;
 	tmp->next->data = swap;
+	return (1);
 }

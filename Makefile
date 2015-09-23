@@ -6,7 +6,7 @@
 #    By: etermeau <etermeau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/05/27 11:20:42 by etermeau          #+#    #+#              #
-#    Updated: 2015/05/27 11:20:46 by etermeau         ###   ########.fr        #
+#    Updated: 2015/09/23 11:28:11 by etermeau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ DIRSRC = srcs/
 FLAGS = -Wall -Wextra -Werror -g
 
 SRC = main.c \
-	  error.c \
+	  annexe.c \
 	  list.c \
 	  swap.c \
 	  push.c \

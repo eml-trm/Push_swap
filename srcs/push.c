@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	push(t_lst **src, t_lst **dst)
+int		push(t_lst **src, t_lst **dst)
 {
 	t_lst	*tmp;
 
@@ -20,8 +20,9 @@ void	push(t_lst **src, t_lst **dst)
 	if (tmp->name == 'a')
 		ft_print_color(YELLOW, "pb ", 1);
 	else
-		ft_print_color(YELLOW, "pa ", 1);
+		ft_print_color(BLUE, "pa ", 1);
 	if (*src == NULL)
-		return ;
+		return (0);
 	lst_change(src, dst);
+	return (1);
 }

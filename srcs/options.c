@@ -45,17 +45,18 @@ t_opt	*options(void)
 			error_code(1);
 		opt->v = 0;
 		opt->n = 0;
+		opt->moves = 0;
 		opt->active = 0;
 	}
 	return (opt);
 }
 
-void	apply_opt_n(int nb)
+void	apply_opt_n(void)
 {
 	if (options()->n)
 	{
 		ft_putstr("\nResolve in ");
-		ft_putnbr(nb);
+		ft_putnbr(options()->moves);
 		ft_putstr(" moves\n");
 	}
 }

@@ -39,3 +39,12 @@ int		b_is_sort(t_lst *lstb)
 	}
 	return (0);
 }
+
+int		is_sort(t_lst *lst1, t_lst *lst2)
+{
+	if (a_is_sort(lst1))
+		return (1);
+	if (b_is_sort(lst2))
+		return (2);
+	return (0);
+}

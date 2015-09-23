@@ -85,6 +85,8 @@ int			main(int ac, char **av)
 		lsta = create_list(ac, av);
 		apply_opt_v(lsta, lstb);
 		resolution(lsta, lstb);
+		apply_opt_v(lsta, lstb);
+		apply_opt_n();
 	}
 	return (0);
 }

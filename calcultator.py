@@ -15,8 +15,8 @@ def main():
         print(output.split('\n')[1])
         val.append(int(output.split('\n')[1].split(' ')[2]))
         del output
-    plt.plot(range(1, nb + 1), val, 'r')
-    plt.show()
+#    plt.plot(range(1, nb + 1), val, 'r')
+ #   plt.show()
     print("moyenne {}".format(sum(val) / len(val)))
     print("min {}".format(min(val)))
     print("max {}".format(max(val)))

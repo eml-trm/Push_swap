@@ -27,13 +27,14 @@ typedef struct		s_opt
 {
 	int				v;
 	int				n;
+	int				moves;
 	int				active;
 }					t_opt;
 
 /*
 ** options
 */
-void				apply_opt_n(int nb);
+void				apply_opt_n(void);
 void				apply_opt_v(t_lst *lst1, t_lst *lst2);
 void				is_option(char *str);
 t_opt				*options(void);
@@ -43,6 +44,7 @@ t_opt				*options(void);
 */
 int					b_is_sort(t_lst *lstb);
 int					a_is_sort(t_lst *lsta);
+int					is_sort(t_lst *lst1, t_lst *lst2);
 int					verif_size(int nb);
 int					verif_rotate_a(t_lst *lst);
 int					verif_rotate_b(t_lst *lst);
@@ -55,8 +57,8 @@ void				resolution(t_lst *lsta, t_lst *lstb);
 */
 void				rev_rotate(t_lst **lst);
 void				rotate(t_lst **lst);
-void				swap(t_lst **lst);
-void				push(t_lst **lst1, t_lst **lst2);
+int					swap(t_lst **lst);
+int					push(t_lst **lst1, t_lst **lst2);
 
 /*
 **list

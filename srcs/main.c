@@ -83,9 +83,11 @@ int			main(int ac, char **av)
 	{
 		options();
 		lsta = create_list(ac, av);
-		apply_opt_v(lsta, lstb);
+		ft_print_color(MAGENTA, "\nStart:", 1);
+		print_lst(lsta, lstb);
 		resolution(lsta, lstb);
-		apply_opt_v(lsta, lstb);
+		ft_print_color(MAGENTA, "\n\nEnd:", 1);
+		print_lst(lsta, lstb);
 		apply_opt_n();
 	}
 	return (0);

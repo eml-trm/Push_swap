@@ -9,7 +9,7 @@
 /*   Updated: 2015/05/27 12:05:24 by etermeau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include <stdio.h>
 #include "libft.h"
 
 int		ft_isint(char *str, int len)
@@ -33,6 +33,10 @@ int		ft_isint(char *str, int len)
 			return (1);
 	}
 	else if (len > 10)
+	{
+		if (ft_strcmp(str, "-2147483648") > 0)
+			return (0);
 		return (1);
+	}
 	return (0);
 }

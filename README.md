@@ -8,7 +8,7 @@ The aim is to sort the stack with the least possible operations .
 ## Summary
  1. [Makefile](#makefile)
  2. [Usage](#usage)
- 3. [Exemple](#exemple)
+ 3. [Example](#exemple)
 
 # <a name="makefile">Makefile</a>
 
@@ -30,7 +30,7 @@ The aim is to sort the stack with the least possible operations .
 * Option -n: Displays at the end of the program the number of executed move.
 >./push_swap -n 3 4 1 6 2
 
-## <a name="exemple">Exemple</a>
+## <a name="exemple">Example</a>
 
 ```c
 ./push_swap 3 8 6 5

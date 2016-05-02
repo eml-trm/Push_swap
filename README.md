@@ -1,34 +1,33 @@
 # Push_swap 
-Ce projet consiste à créer un programme qui prend en paramètre la pile a sous la forme
-d’une liste de nombres. Le premier paramètre est au sommet de la pile.
-Le programme doit afficher la suite d’opérations qui permet de trier la pile, le plus
-petit nombre étant au sommet.
-Le but est de trier la pile avec le moins d’opérations possibles.
 
+Create program that takes as a parameters a stack, as a list of numbers. The first parameter is the top of the stack .
+The program should display the following operations to sort the stack. The
+the smallest number is at the top.
+The aim is to sort the stack with the least possible operations .
 
 ## Summary
  1. [Makefile](#makefile)
- 2. [Utilisation](#usage)
+ 2. [Usage](#usage)
  3. [Exemple](#exemple)
 
-## <a name="makefile">Makefile</a>
+# <a name="makefile">Makefile</a>
 
 | Commande       	|  Actions 	|
 |----------------	|----------	|
-| `make`      	  | Compile tous les .c et créer un exécutable fdf  	|
-| `make clean`    | Supprime les .o.  	|
-| `make flcean`  	| Supprime les .o et fdf.  	|
-| `make re` 	 	| Exécute fclean et make.  	|
+| `make`      	  | Compile all .c and create an executable 'push_swap'  	|
+| `make clean`    | Delete all .o.  	|
+| `make flcean`  	| Delete all .o and executable 'push_swap'.  	|
+| `make re` 	 	| Execute fclean and make.  	|
 
-## <a name="usage">Utilisation</a>
+# <a name="usage">Usage</a>
 
-* Sans option:
+* Without option:
 >./push_swap 4 88 23  5
 
-* Option -v: Affiche le detail de l'action executée dans les listes.
+* Option -v: Displays the detail of the action executed in the lists .
 >./push_swap -v 3 5 4 77 1
   
-* Option -n: Affiche le nombre de mouvement réalisés à la fin du programme.
+* Option -n: Displays at the end of the program the number of executed move.
 >./push_swap -n 3 4 1 6 2
 
 ## <a name="exemple">Exemple</a>
